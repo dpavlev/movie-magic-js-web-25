@@ -19,6 +19,12 @@ function getAll(filter = {}) {
     if (filter.title) {
         result = result.filter((movie) => movie.title.toLowerCase().includes(filter.title.toLowerCase()));
     }
+    if (filter.genre) {
+        result = result.filter((movie) => movie.genre.toLowerCase() === filter.genre.toLowerCase());
+    }
+    if (filter.year) {
+        result = result.filter((movie) => movie.year == filter.year);
+    }
     return result;
 }
 
