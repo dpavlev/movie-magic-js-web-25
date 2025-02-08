@@ -14,13 +14,15 @@ movieController.post("/create", (req, res) => {
 });
 
 movieController.get("/search", (req, res) => {
-    res.render("search");
+    const movies = movieService.getAll();
+
+    res.render("search", { movies });
 });
 
 movieController.post("/search", (req, res) => {
-    const searchParams = req.body;
-    const results = movieService.searchMovies(searchParams);
-    res.render("search", { results });
+    const movies = movieService.getAll();
+
+    res.render("search", { movies });
 });
 
 movieController.get("/:movieId/details", (req, res) => {
