@@ -14,18 +14,16 @@ function create(movieData) {
     });
 }
 
-function getAll() {
-    return movies;
-}
-
-function searchMovies(searchParams) {
-    const result = movies.find((movie) => movie.title.includes(searchParams.title) || movie.genre.includes(searchParams.genre) || movie.year === searchParams.year);
+function getAll(filter = {}) {
+    let result = movies;
+    if (filter.title) {
+        result = result.filter((movie) => movie.title.toLowerCase().includes(filter.title.toLowerCase()));
+    }
     return result;
 }
 
 export default {
     getMovie,
     create,
-    getAll,
-    searchMovies
+    getAll
 };
