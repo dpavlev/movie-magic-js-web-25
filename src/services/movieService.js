@@ -18,8 +18,14 @@ function getAll() {
     return movies;
 }
 
+function searchMovies(searchParams) {
+    const result = movies.find((movie) => movie.title.includes(searchParams.title) || movie.genre.includes(searchParams.genre) || movie.year === searchParams.year);
+    return result;
+}
+
 export default {
     getMovie,
     create,
-    getAll
+    getAll,
+    searchMovies
 };

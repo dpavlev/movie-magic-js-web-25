@@ -13,11 +13,20 @@ movieController.post("/create", (req, res) => {
     res.redirect("/");
 });
 
+movieController.get("/search", (req, res) => {
+    res.render("search");
+});
+
+movieController.post("/search", (req, res) => {
+    const searchParams = req.body;
+    const results = movieService.searchMovies(searchParams);
+    res.render("search", { results });
+});
+
 movieController.get("/:movieId/details", (req, res) => {
     const movieId = req.params.movieId;
     const movie = movieService.getMovie(movieId);
-
-    res.render("details", movie);
+    res.render("details", { movie });
 });
 
 export default movieController;
