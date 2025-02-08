@@ -7,7 +7,8 @@ export default [
         image: "/static/img/jungle-cruise.jpeg",
         year: "2021",
         director: "Jaume Collet-Serra",
-        rating: "3"
+        rating: "3",
+        category: "Movie"
     },
     {
         id: "2",
@@ -17,7 +18,8 @@ export default [
         image: "/static/img/the-little-mermaid.jpg",
         year: "2023",
         director: "Rob Marshall",
-        rating: "4"
+        rating: "4",
+        category: "Movie"
     },
     {
         id: "3",
@@ -27,6 +29,7 @@ export default [
         image: "/static/img/home-alone.jpeg",
         year: "1990",
         director: "Chris Columbus",
-        rating: "4"
+        rating: "4",
+        category: "Movie"
     }
 ];
