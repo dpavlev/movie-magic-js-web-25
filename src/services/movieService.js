@@ -17,17 +17,19 @@ function create(movieData) {
 }
 
 function getAll(filter = {}) {
-    let result = Movie.find({});
-    // if (filter.title) {
-    //     result = result.filter((movie) => movie.title.toLowerCase().includes(filter.title.toLowerCase()));
-    // }
-    // if (filter.genre) {
-    //     result = result.filter((movie) => movie.genre.toLowerCase() === filter.genre.toLowerCase());
-    // }
-    // if (filter.year) {
-    //     result = result.filter((movie) => movie.year == filter.year);
-    // }
-    return result;
+    let query = Movie.find({});
+    if (filter.title) {
+        // TODO: use case insensitive search
+        query = query.find({ title: filter.title });
+    }
+    if (filter.genre) {
+        // TODO: use case insensitive search
+        query = query.find({ genre: filter.genre });
+    }
+    if (filter.year) {
+        query = query.find({ year: Number(filter.year) });
+    }
+    return query;
 }
 
 export default {
