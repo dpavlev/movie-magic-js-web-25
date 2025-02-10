@@ -1,5 +1,4 @@
 // import movies from "../movies.js";
-import { v4 as uuid } from "uuid";
 import Movie from "../models/Movie.js";
 
 function getMovie(movieId) {
@@ -9,7 +8,6 @@ function getMovie(movieId) {
 }
 
 function create(movieData) {
-    const newId = uuid();
     movies.push({
         id: newId,
         ...movieData
