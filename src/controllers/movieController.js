@@ -24,9 +24,9 @@ movieController.post("/search", (req, res) => {
     res.render("search", { movies });
 });
 
-movieController.get("/:movieId/details", (req, res) => {
+movieController.get("/:movieId/details", async (req, res) => {
     const movieId = req.params.movieId;
-    const movie = movieService.getMovie(movieId);
+    const movie = await movieService.getMovie(movieId).lean();
     res.render("details", movie);
 });
 

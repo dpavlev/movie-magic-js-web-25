@@ -3,7 +3,8 @@ import { v4 as uuid } from "uuid";
 import Movie from "../models/Movie.js";
 
 function getMovie(movieId) {
-    const result = movies.find((movie) => movie.id === movieId);
+    const result = Movie.findById(movieId);
+
     return result;
 }
 
