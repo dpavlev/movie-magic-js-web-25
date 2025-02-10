@@ -1,8 +1,7 @@
 import Movie from "../models/Movie.js";
 
 function getMovie(movieId) {
-    const result = Movie.findById(movieId);
-
+    const result = Movie.findById(movieId).populate("casts");
     return result;
 }
 
