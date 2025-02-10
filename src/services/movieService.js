@@ -1,4 +1,3 @@
-// import movies from "../movies.js";
 import Movie from "../models/Movie.js";
 
 function getMovie(movieId) {
@@ -8,10 +7,13 @@ function getMovie(movieId) {
 }
 
 function create(movieData) {
-    movies.push({
-        id: newId,
-        ...movieData
+    const result = Movie.create({
+        ...movieData,
+        rating: Number(movieData.rating),
+        year: Number(movieData.year)
     });
+
+    return result;
 }
 
 function getAll(filter = {}) {
