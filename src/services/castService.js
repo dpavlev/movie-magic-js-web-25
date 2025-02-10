@@ -8,4 +8,12 @@ function createCast(castData) {
     return result;
 }
 
-export default { createCast };
+function getAll() {
+    let query = Cast.find({});
+    return query;
+}
+
+export default {
+    createCast,
+    getAll
+};
