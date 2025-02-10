@@ -19,11 +19,6 @@ movieController.get("/search", async (req, res) => {
     res.render("search", { movies, filter });
 });
 
-movieController.post("/search", (req, res) => {
-    const movies = movieService.getAll();
-    res.render("search", { movies });
-});
-
 movieController.get("/:movieId/details", async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getMovie(movieId).lean();
