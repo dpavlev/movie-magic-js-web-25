@@ -36,9 +36,12 @@ function getAll(filter = {}) {
 }
 
 async function attachCast(movieId, castId) {
-    const movie = await Movie.findById(movieId);
-    movie.casts.push(castId);
-    await movie.save();
+    // *Method #1 with 2 queries
+    // const movie = await Movie.findById(movieId);
+    // movie.casts.push(castId);
+    // await movie.save();
+    // *Method #2 with 1 query
+    Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
 }
 
 export default {
