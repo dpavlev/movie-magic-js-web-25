@@ -8,8 +8,11 @@ function createCast(castData) {
     return result;
 }
 
-function getAll() {
-    let query = Cast.find({});
+function getAll(filter = {}) {
+    let query = Cast.find();
+    if (filter.exclude) {
+        query = query.find({ _id: { $nin: filter.exclude } });
+    }
     return query;
 }
 

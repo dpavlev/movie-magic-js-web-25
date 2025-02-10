@@ -1,6 +1,10 @@
 import Movie from "../models/Movie.js";
 
 function getMovie(movieId) {
+    const result = Movie.findById(movieId);
+    return result;
+}
+function getMovieWithCast(movieId) {
     const result = Movie.findById(movieId).populate("casts");
     return result;
 }
@@ -39,6 +43,7 @@ async function attachCast(movieId, castId) {
 
 export default {
     getMovie,
+    getMovieWithCast,
     create,
     getAll,
     attachCast
