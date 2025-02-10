@@ -22,7 +22,7 @@ movieController.get("/search", async (req, res) => {
 movieController.get("/:movieId/details", async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getMovie(movieId).lean();
-    res.render("details", movie);
+    res.render("details", { movie });
 });
 
 export default movieController;
