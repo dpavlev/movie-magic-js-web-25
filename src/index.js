@@ -2,13 +2,14 @@ import express from "express";
 import handlebars from "express-handlebars";
 import mongoose from "mongoose";
 import routes from "./routes.js";
+import "dotenv/config";
 import showRating from "./helpers/ratingHelper.js";
 
 const app = express();
 
 // db config
 try {
-    const uri = "mongodb://localhost:27017/movie-magic-js-web-25";
+    const uri = process.env.DATABASE_URI;
     await mongoose.connect(uri);
     console.log("DB Connected Successfully");
 } catch (err) {
