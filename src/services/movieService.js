@@ -9,11 +9,12 @@ function getMovieWithCast(movieId) {
     return result;
 }
 
-function create(movieData) {
+function create(movieData, creatorId) {
     const result = Movie.create({
         ...movieData,
         rating: Number(movieData.rating),
-        year: Number(movieData.year)
+        year: Number(movieData.year),
+        creator: creatorId
     });
 
     return result;
