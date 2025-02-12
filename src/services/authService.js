@@ -1,5 +1,7 @@
+import User from "../models/User.js";
+
 function register(userData) {
-    console.log(userData);
+    return User.create(userData);
 }
 
 export default {
