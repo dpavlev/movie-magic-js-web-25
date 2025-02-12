@@ -23,14 +23,14 @@ movieController.get("/search", async (req, res) => {
 movieController.get("/:movieId/details", async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getMovieWithCast(movieId).lean();
-    res.render("details", { movie });
+    res.render("movies/details", { movie });
 });
 
 movieController.get("/:movieId/attach-cast", async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getMovie(movieId).lean();
     const casts = await castService.getAll({ exclude: movie.casts }).lean();
-    res.render("cast-attach", { movie, casts });
+    res.render("casts/cast-attach", { movie, casts });
 });
 
 movieController.post("/:movieId/attach-cast", async (req, res) => {
