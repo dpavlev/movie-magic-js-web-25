@@ -46,8 +46,6 @@ function attachCast(movieId, castId) {
 }
 
 async function deleteMovie(movieId) {
-    // console.log(await Movie.findById(movieId));
-
     return Movie.findByIdAndDelete(movieId);
 }
 
