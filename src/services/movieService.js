@@ -42,7 +42,7 @@ function attachCast(movieId, castId) {
     // movie.casts.push(castId);
     // await movie.save();
     // *Method #2 with 1 query
-    Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
+    return Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
 }
 
 async function deleteMovie(movieId) {
