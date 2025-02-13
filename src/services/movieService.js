@@ -36,7 +36,7 @@ function getAll(filter = {}) {
     return query;
 }
 
-async function attachCast(movieId, castId) {
+function attachCast(movieId, castId) {
     // *Method #1 with 2 queries
     // const movie = await Movie.findById(movieId);
     // movie.casts.push(castId);
@@ -45,10 +45,17 @@ async function attachCast(movieId, castId) {
     Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
 }
 
+async function deleteMovie(movieId) {
+    // console.log(await Movie.findById(movieId));
+
+    return Movie.findByIdAndDelete(movieId);
+}
+
 export default {
     getMovie,
     getMovieWithCast,
     create,
     getAll,
-    attachCast
+    attachCast,
+    deleteMovie
 };
