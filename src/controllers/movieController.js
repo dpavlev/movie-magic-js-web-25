@@ -24,7 +24,8 @@ movieController.get("/search", async (req, res) => {
 movieController.get("/:movieId/details", async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getMovieWithCast(movieId).lean();
-    res.render("movies/details", { movie });
+    const isCreator = movie.creator && movie.creator.toString() === req.user?.id;
+    res.render("movies/details", { movie, isCreator });
 });
 
 movieController.get("/:movieId/attach-cast", async (req, res) => {
