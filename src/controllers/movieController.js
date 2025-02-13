@@ -54,7 +54,9 @@ movieController.get("/:movieId/delete", async (req, res) => {
 });
 
 movieController.get("/:movieId/edit", async (req, res) => {
-    res.render("movies/edit");
+    const movieId = req.params.movieId;
+    const movie = await movieService.getMovie(movieId).lean();
+    res.render("movies/edit", { movie });
 });
 
 export default movieController;
