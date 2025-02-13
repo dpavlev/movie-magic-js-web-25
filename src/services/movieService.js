@@ -45,8 +45,12 @@ function attachCast(movieId, castId) {
     return Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
 }
 
-async function deleteMovie(movieId) {
+function deleteMovie(movieId) {
     return Movie.findByIdAndDelete(movieId);
+}
+
+function updateMovie(movieId, movieData) {
+    return Movie.findByIdAndUpdate(movieId, movieData);
 }
 
 export default {
@@ -55,5 +59,6 @@ export default {
     create,
     getAll,
     attachCast,
-    deleteMovie
+    deleteMovie,
+    updateMovie
 };

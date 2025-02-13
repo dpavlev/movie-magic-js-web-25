@@ -60,6 +60,14 @@ movieController.get("/:movieId/edit", async (req, res) => {
     res.render("movies/edit", { movie, categories });
 });
 
+movieController.post("/:movieId/edit", async (req, res) => {
+    const movieData = req.body;
+    const movieId = req.params.movieId;
+    // TODO: check if creator
+    await movieService.updateMovie(movieId, movieData);
+    res.redirect(`/movies/${movieId}/details`);
+});
+
 function getCategoriesViewData(category) {
     const categoriesMap = {
         "tv-show": "TV Show",
