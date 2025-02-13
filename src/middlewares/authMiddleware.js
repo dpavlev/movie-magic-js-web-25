@@ -8,6 +8,7 @@ export const authMiddleware = (req, res, next) => {
     try {
         const decodedToken = jws.verify(token, process.env.SECRET);
         req.user = decodedToken;
+        res.locals.user = decodedToken;
         next();
     } catch (error) {
         // TODO: Invalid token
